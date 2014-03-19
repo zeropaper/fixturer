@@ -1,0 +1,33 @@
+{
+  "name": "fixturer",
+  "version": "0.0.1",
+  "description": "A dummy data and fixtures generation tool.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -b test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeropaper/fixturer.git"
+  },
+  "keywords": [
+    "fixture",
+    "test",
+    "testing",
+    "dummy"
+  ],
+  "author": "Valentin Vago <zeropaper@irata.ch>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeropaper/fixturer/issues"
+  },
+  "homepage": "https://github.com/zeropaper/fixturer",
+  "devDependencies": {
+    "mocha": "^1.17.1",
+    "expect.js": "^0.3.1"
+  },
+  "dependencies": {
+    "underscore": "^1.6.0",
+    "underscore.string": "^2.3.3"
+  }
+}
