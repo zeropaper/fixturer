@@ -219,6 +219,7 @@
     _.each([
       'loremIpsum',
       'random',
+      'randomDate',
       'evilScript',
       'evilLink',
       'personName'
