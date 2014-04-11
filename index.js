@@ -263,7 +263,7 @@
       });
     }
     else {
-      fixture = defintion;
+      fixture = definition;
     }
 
     if (_.isString(fixture)) {
