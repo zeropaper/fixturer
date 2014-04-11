@@ -314,6 +314,18 @@
   };
 
   /**
+   * Generates a random date between `start` and `end`
+   * @param  {date} [start] for the `oldest` possible value
+   * @param  {date} [end]   for the `newest` possible value
+   * @return {date}
+   */
+  fixturer.randomDate = function randomDate(start, end) {
+    start = start || (new Date(1981, 1, 9));
+    end = end || (new Date(2021, 1, 9));
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  };
+
+  /**
    * Evil code generation
    * @returns {string} - A string with some evil code in it
    */
