@@ -219,12 +219,12 @@
     _.each([
       'loremIpsum',
       'random',
+      'randomItem',
+      'randomString',
       'randomDate',
       'evilScript',
       'evilLink',
-      'personName',
-      'randItem',
-      'randomItem'
+      'personName'
     ], function(name) {
       functions[name] = fixturer[name];
     });
@@ -298,6 +298,21 @@
   };
 
   /**
+   * Generates a random string
+   * @param  {integer} length of the generated string
+   * @param  {string} chars   allowed to be used
+   * @return {string}         a random string
+   */
+  fixturer.randomString = function(length, chars) {
+    chars = chars || '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var result = '';
+    for (var i = length; i > 0; --i) {
+      result += chars[Math.round(Math.random() * (chars.length - 1))];
+    };
+    return result;
+  }
+
+  /**
    * Creates a random number
    * @param {Number} min        - the minimal value return
    * @param {Number} max        - the maximal value return
@@ -315,16 +330,7 @@
 
     return Math.round((min + (diff * rand)) * factor) / factor;
   };
-
-  /**
-   * Picks 1 random item in a list
-   * @param  {array} list of available items
-   * @return {*}          the picked item
-   */
-  fixturer.randomItem = function(list) {
-    return list[fixturer.random(0, list.length - 1)];
-  };
-
+  
   /**
    * Generates a random date between `start` and `end`
    * @param  {date} [start] for the `oldest` possible value
@@ -360,7 +366,7 @@
    * @param {number} count - the number of items, 1 by default
    * @returns {*}
    */
-  fixturer.randItem = function(array, count) {
+  fixturer.randomItem = function(array, count) {
     count = count || 1;
     var items = [];
 
@@ -383,16 +389,16 @@
    * @returns {string}        - A string with some evil code in it
    */
   fixturer.personName = function(first, last, middle, gender) {
-    gender = gender || fixturer.randItem(_genders);
+    gender = gender || fixturer.randomItem(_genders);
     var name = [];
     if (first !== false) {
-      name.push(fixturer.randItem(_names.first[gender]));
+      name.push(fixturer.randomItem(_names.first[gender]));
     }
     if (middle) {
-      name.push(fixturer.randItem(_names.first[gender]));
+      name.push(fixturer.randomItem(_names.first[gender]));
     }
     if (last !== false) {
-      name.push(fixturer.randItem(_names.last));
+      name.push(fixturer.randomItem(_names.last));
     }
     return name.join(' ');
   };
