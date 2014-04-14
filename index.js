@@ -222,7 +222,8 @@
       'randomDate',
       'evilScript',
       'evilLink',
-      'personName'
+      'personName',
+      'randomItem'
     ], function(name) {
       functions[name] = fixturer[name];
     });
@@ -289,7 +290,7 @@
 
   /**
    * Example text generation
-   * @returns {string} - A string to be used for fixtures 
+   * @returns {string} - A string to be used for fixtures
    */
   fixturer.loremIpsum = function() {
     return _loremIpsum;
@@ -312,6 +313,15 @@
     var factor = Math.pow(10, precision);
 
     return Math.round((min + (diff * rand)) * factor) / factor;
+  };
+
+  /**
+   * Picks 1 random item in a list
+   * @param  {array} list of available items
+   * @return {*}          the picked item
+   */
+  fixturer.randomItem = function(list) {
+    return list[root.fixturer.random(0, list.length - 1)];
   };
 
   /**
@@ -348,7 +358,7 @@
    * @param {array} array - the source array
    * @param {number} count - the number of items, 1 by default
    * @returns {*}
-   */ 
+   */
   fixturer.randItem = function(array, count) {
     count = count || 1;
     var items = [];
