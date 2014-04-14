@@ -223,6 +223,7 @@
       'evilScript',
       'evilLink',
       'personName',
+      'randItem',
       'randomItem'
     ], function(name) {
       functions[name] = fixturer[name];
@@ -321,7 +322,7 @@
    * @return {*}          the picked item
    */
   fixturer.randomItem = function(list) {
-    return list[root.fixturer.random(0, list.length - 1)];
+    return list[fixturer.random(0, list.length - 1)];
   };
 
   /**
