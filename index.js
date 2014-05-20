@@ -224,7 +224,8 @@
       'randomDate',
       'evilScript',
       'evilLink',
-      'personName'
+      'personName',
+      'thingName'
     ], function(name) {
       functions[name] = fixturer[name];
     });
@@ -251,7 +252,6 @@
     var fixture;
 
     if (_.isString(definition)) {
-      // console.info('definition is string', definition);
       fixture = _.template(definition, _functions());
     }
     else if (_.isArray(definition)) {
@@ -294,7 +294,8 @@
    * @returns {string} - A string to be used for fixtures
    */
   fixturer.loremIpsum = function() {
-    return _loremIpsum;
+    var words = _loremIpsum.split(/\s/);
+    return words.slice(0, fixturer.random(10, words.length - 1)).join(' ');
   };
 
   /**
@@ -330,7 +331,7 @@
 
     return Math.round((min + (diff * rand)) * factor) / factor;
   };
-  
+
   /**
    * Generates a random date between `start` and `end`
    * @param  {date} [start] for the `oldest` possible value
@@ -399,6 +400,16 @@
     }
     if (last !== false) {
       name.push(fixturer.randomItem(_names.last));
+    }
+    return name.join(' ');
+  };
+
+  fixturer.thingName = function(count) {
+    count = count || 1;
+    var name = [];
+    var words = _loremIpsum.split(/\s/);
+    for (var w = 0; w < count; w++) {
+      name.push(fixturer.randomItem(words));
     }
     return name.join(' ');
   };
