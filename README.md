@@ -41,7 +41,9 @@ fixturer(json);
 
 ### personName
 Person name generation
+
 __Params__
+
  *  {bool} first      - if strictly `false`, no first name part
  *  {bool} last       - if strictly `false`, no last name part
  *  {bool} middle     - if truthy, adds a middle name part
@@ -50,7 +52,9 @@ __Params__
 
 ### thingName
 Thing name generation
+
 __Params__
+
  *  {int} count       - the number of words used
 
 ## License
