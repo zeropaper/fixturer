@@ -3,6 +3,13 @@ fixturer
 
 A small module to generate fixtures
 
+## Installation
+
+The project is not yet in the npm registry but you can install it as follow
+```sh
+npm install --save-dev zeropaper/fixturer
+```
+
 ## Usage
 
 Can be used as a tool-belt
@@ -23,9 +30,14 @@ var json = {
 
 fixturer(json);
 ```
+
+It should be possible to use it in a browser.. but... I didn't test it.
+
+
 ## Methods
 
 ### loremIpsum
+Generate a random text
 
 ### random
 
