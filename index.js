@@ -362,6 +362,20 @@
 
 
   /**
+   * Generates a random hexadecimal color code
+   * @returns {string} - A string like #FFFFFF
+   */
+  fixturer.randomColor = function() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
+
+  /**
    * Pick one or more random items from an array
    * @param {array} array - the source array
    * @param {number} count - the number of items, 1 by default
