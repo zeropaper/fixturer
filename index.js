@@ -222,6 +222,7 @@
       'randomItem',
       'randomString',
       'randomDate',
+      'randomWord',
       'evilScript',
       'evilLink',
       'personName',
@@ -296,6 +297,15 @@
   fixturer.loremIpsum = function() {
     var words = _loremIpsum.split(/\s/);
     return words.slice(0, fixturer.random(10, words.length - 1)).join(' ');
+  };
+
+  /**
+   * Word generation
+   * @returns {string} - A string to be used for fixtures
+   */
+  fixturer.randomWord = function() {
+    var words = _loremIpsum.split(/\s/);
+    return words[fixturer.random(0, words.length - 1)];
   };
 
   /**

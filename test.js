@@ -8,7 +8,8 @@ var definition = {
   random: {
     float: '<%= random(0, 1, 2) %>',
     integer: '<%= random(10, 100) %>',
-    negative: '<%= random(-100, -10) %>'
+    negative: '<%= random(-100, -10) %>',
+    word: '<%= randomWord() %>'
   },
   names: {
     noargs: '<%= personName() %>',
@@ -64,7 +65,7 @@ describe('The fixturer module', function(done) {
       done();
     });
 
-    it('has a "random" utility', function(done) {      
+    it('has a "random" utility', function(done) {
       expect((''+ json.random.float).split('.').length).to.be(2);
       expect(json.random.float).to.be.above(0);
       expect(json.random.float).to.be.below(1);
@@ -77,6 +78,11 @@ describe('The fixturer module', function(done) {
       expect(json.random.negative >= -100).to.be.ok();
       expect(json.random.negative <= -10).to.be.ok();
 
+      done();
+    });
+
+    it('has a "randomWord" utility', function(done) {
+      expect(json.random.word).to.be.a('string');
       done();
     });
 
@@ -97,7 +103,7 @@ describe('The fixturer module', function(done) {
       done();
     });
 
-    it('has a "evilScript" utility', function(done) {      
+    it('has a "evilScript" utility', function(done) {
       expect(fixturer('<%= evilScript() %>')).to.be.a('string');
       expect(json.evil.script).to.be.a('string');
       done();
@@ -115,7 +121,7 @@ describe('The fixturer module', function(done) {
       json = fixturer(definition);
       done();
     });
-    
+
     it('transforms into boolean', function(done) {
       expect(fixturer('::bool::1')).to.be(true);
       expect(fixturer('::bool::0')).to.be(false);
